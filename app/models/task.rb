@@ -29,6 +29,7 @@ class Task
     database.results_as_hash = true
     database
   end
+  
   def save
     @database.execute("INSERT INTO tasks (title, description) VALUES (?, ?);", @title, @description)
   end
