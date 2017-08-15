@@ -1,6 +1,12 @@
 <h1>All Tasks</h1>
-<h2><%= "You are in #{params[:location]}, more specifically you're at #{params[:institution]}" %></h2>
+<p>Return to the <a href="/">Home Page</a></p>
+<p>Create a <a href="/tasks/new">New Task</a></p>
 <% @tasks.each do |task| %>
   <h3><a href="/tasks/<%= task.id %>"><%= task.title %></a></h3>
   <p><%= task.description %></p>
+  <a href="/tasks/<%= task.id  %>/edit">Edit</a>
+  <form action="/tasks/<%= task.id %>" method="POST">
+    <input type="hidden" name="_method" value="DELETE">
+    <input type="submit" value="delete"/>
+  </form>
 <% end %>
